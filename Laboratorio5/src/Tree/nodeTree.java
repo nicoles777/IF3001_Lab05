@@ -16,17 +16,17 @@ public class nodeTree {
     
     //Datos para a agregar en el árbol
     public String name;
+    public String lastname;
     public String dad;
-    public String mom;
     
     public nodeTree left; //nodo izquierdo del árbol
     public nodeTree right; //nodo derechos del árbol
 
-    public nodeTree(int ID, String name, String dad, String mom) {
+    public nodeTree(int ID, String name, String dad, String lastname) {
         this.ID = ID;
         this.name = name;
         this.dad = dad;
-        this.mom = mom;
+        this.lastname = lastname;
         this.left = null;
         this.right = null;
     }
