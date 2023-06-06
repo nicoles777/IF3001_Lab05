@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package Tree;
 
 /**
  *
- * @author uu
+ * @author c03274
  */
 public class Graphis {
-    
+    public void menu(){
+        
+    }
 }
