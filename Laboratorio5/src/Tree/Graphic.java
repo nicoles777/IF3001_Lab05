@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  *
  * @author c03274
  */
-public class Graphis {
+public class Graphic {
    public static void main(String[] args) {
       /*Cola cola = new Cola();
 
