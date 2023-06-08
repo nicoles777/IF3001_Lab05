@@ -57,6 +57,15 @@ public class main {
         // Imprimir los datos actualizados del árbol en orden
         System.out.println("\n Arbol actualizado:");
         arbol.imprimirArbol(arbol.raiz);
+        
+        // Imprimir los datos del árbol en orden
+        System.out.println("\nArbol ENORDEN:");
+        arbol.imprimirEnOrden();
+
+        // Imprimir los datos del árbol en orden
+        System.out.println("\nArbol POSTORDEN:");
+        arbol.recorridoPostOrden();
+        
     }
 }
 
