@@ -9,13 +9,14 @@ package Tree;
  * @author sofig
  */
 public class ArbolBinarioBusqueda {
+
     nodeTree raiz;
 
     ArbolBinarioBusqueda() {
         raiz = null;
     }
 
-    void insertarNodo(int ID, String name, String lastname, String address) {
+    public void insertarNodo(int ID, String name, String lastname, String address) {
         raiz = insertarRecursivo(raiz, ID, name, lastname, address);
     }
 
@@ -36,7 +37,7 @@ public class ArbolBinarioBusqueda {
         return raiz;
     }
 
-    void imprimirArbol(nodeTree nodo) {
+    public void imprimirArbol(nodeTree nodo) {
         if (nodo != null) {
             imprimirArbol(nodo.left);
             System.out.println("\n Datos de las personas ingresadas:");
@@ -45,29 +46,30 @@ public class ArbolBinarioBusqueda {
         }
     }
 /////////METODOS DE LOS RECORRIDOS/////////
-    
+
     //ENORDEN
     //Se imprime el arbol en orden ascendente
-    void imprimirEnOrden() {
+    public void imprimirEnOrden() {
         enOrden(raiz);
     }
 
-    void enOrden(nodeTree nodo) {
+    public void enOrden(nodeTree nodo) {
         if (nodo != null) {
             enOrden(nodo.left);
             System.out.println(nodo.ID + "-" + nodo.name + "-" + nodo.lastname + "-" + nodo.address);
             enOrden(nodo.right);
         }
     }
-    
+
     ///POST ORDEN
     public void recorridoPostOrden() {
         recorridoPostOrdenRec(raiz);
     }
-
-    private void recorridoPostOrdenRec(nodeTree nodo) {
-        if (nodo == null)
+    
+        private void recorridoPostOrdenRec(nodeTree nodo) {
+        if (nodo == null) {
             return;
+        }
 
         // Recorremos el subárbol izquierdo
         recorridoPostOrdenRec(nodo.left);
@@ -78,15 +80,35 @@ public class ArbolBinarioBusqueda {
         // Imprimimos el valor del nodo
         System.out.println(nodo.ID + "-" + nodo.name + "-" + nodo.lastname + "-" + nodo.address);
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void printPreOrden() {
         
+        preOrden(raiz);
+
+    }
+
+    public void preOrden(nodeTree nodo) {
+        if (nodo != null) { //debe existir al menos un nodo 
+            //se imprime el nodo raíz
+            System.out.println(nodo.ID + "-" + nodo.name + "-" + nodo.lastname + "-" + nodo.address);
+          
+            //se imprime el subarbol izquierdo 
+            preOrden(nodo.left);
+        
+            //se imprime el subarbol derecho
+            preOrden(nodo.right);
+        }
+
+    }
     
-    
-    void borrarNodo(int idBorrar) {
+////////////////////////////////////////////////////////////////////////////////////////////////////7//
+
+
+    public void borrarNodo(int idBorrar) {
         raiz = borrarRecursivo(raiz, idBorrar);
-}
+    }
 
-
-nodeTree borrarRecursivo(nodeTree raiz, int ID) {
+    nodeTree borrarRecursivo(nodeTree raiz, int ID) {
         if (raiz == null) {
             return raiz;
         }
@@ -99,14 +121,12 @@ nodeTree borrarRecursivo(nodeTree raiz, int ID) {
             // Caso 1: El nodo a borrar es una hoja
             if (raiz.left == null && raiz.right == null) {
                 raiz = null;
-            }
-            // Caso 2: El nodo a borrar tiene solo un hijo
+            } // Caso 2: El nodo a borrar tiene solo un hijo
             else if (raiz.left == null) {
                 raiz = raiz.right;
             } else if (raiz.right == null) {
                 raiz = raiz.left;
-            }
-            // Caso 3: El nodo a borrar tiene dos hijos
+            } // Caso 3: El nodo a borrar tiene dos hijos
             else {
                 nodeTree sucesor = obtenerSucesor(raiz.right);
                 raiz.ID = sucesor.ID;
@@ -127,5 +147,27 @@ nodeTree borrarRecursivo(nodeTree raiz, int ID) {
         }
         return actual;
     }
-}
 
+// Método para imprimir la estructura del árbol
+    public void printStructureTree(nodeTree nodo, String level) {
+        if (nodo == null) {
+            return;
+        }
+
+        // Imprimir el nodo actual
+        System.out.println(level + "|--" + nodo.ID + "-" + nodo.name + "-" + nodo.lastname + "-" + nodo.address);
+
+        // Generar el prefijo para los nodos izquierdo y derecho
+        String subTreeLeft = level + "   |";
+        String subTreeRight = level + "    ";
+
+        // Imprimir el subárbol derecho
+        
+        printStructureTree( nodo.right, subTreeRight + "|" );
+
+        // Imprimir el subárbol izquierdo
+        
+        printStructureTree(nodo.left, subTreeLeft);
+    }
+
+}

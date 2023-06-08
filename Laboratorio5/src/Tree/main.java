@@ -1,3 +1,4 @@
+
 /*En esta clase se encuentran los métodos para realizar la insersión y borrado*/
 package Tree;
 import java.util.Scanner;
@@ -37,7 +38,18 @@ public class main {
         
         // Imprimir los datos del árbol en orden
         System.out.println("\n Arbol actual:");
+        
+        System.out.println("////////////////////// Gráficación Textual de la estructura del Árbol ////////////////////////////");
+        
+        
+        
+        System.out.println("\nEstructura del árbol:");
+        arbol.printStructureTree(arbol.raiz, "");
+        
+        
+        System.out.println("////////////////////// Fin de la gráficación ////////////////////////////");
         arbol.imprimirArbol(arbol.raiz);
+        
         
         // Imprimir los datos del árbol en orden
         System.out.println("\nArbol ENORDEN:");
@@ -46,6 +58,10 @@ public class main {
         // Imprimir los datos del árbol en orden
         System.out.println("\nArbol POSTORDEN:");
         arbol.recorridoPostOrden();
+        
+        // Imprimir los datos del árbol en preorden
+        System.out.println("\nArbol PREORDEN:");
+        arbol.printPreOrden();
         
         // Solicitar el Id del nodo a borrar
         System.out.print("\n Ingrese el Id del nodo a borrar: ");
