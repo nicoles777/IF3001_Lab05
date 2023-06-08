@@ -44,7 +44,43 @@ public class ArbolBinarioBusqueda {
             imprimirArbol(nodo.right);
         }
     }
+/////////METODOS DE LOS RECORRIDOS/////////
+    
+    //ENORDEN
+    //Se imprime el arbol en orden ascendente
+    void imprimirEnOrden() {
+        enOrden(raiz);
+    }
 
+    void enOrden(nodeTree nodo) {
+        if (nodo != null) {
+            enOrden(nodo.left);
+            System.out.println(nodo.ID + "-" + nodo.name + "-" + nodo.lastname + "-" + nodo.address);
+            enOrden(nodo.right);
+        }
+    }
+    
+    ///POST ORDEN
+    public void recorridoPostOrden() {
+        recorridoPostOrdenRec(raiz);
+    }
+
+    private void recorridoPostOrdenRec(nodeTree nodo) {
+        if (nodo == null)
+            return;
+
+        // Recorremos el subárbol izquierdo
+        recorridoPostOrdenRec(nodo.left);
+
+        // Recorremos el subárbol derecho
+        recorridoPostOrdenRec(nodo.right);
+
+        // Imprimimos el valor del nodo
+        System.out.println(nodo.ID + "-" + nodo.name + "-" + nodo.lastname + "-" + nodo.address);
+    }
+        
+    
+    
     void borrarNodo(int idBorrar) {
         raiz = borrarRecursivo(raiz, idBorrar);
 }

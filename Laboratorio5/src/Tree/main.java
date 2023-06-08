@@ -38,7 +38,15 @@ public class main {
         // Imprimir los datos del árbol en orden
         System.out.println("\n Arbol actual:");
         arbol.imprimirArbol(arbol.raiz);
+        
+        // Imprimir los datos del árbol en orden
+        System.out.println("\nArbol ENORDEN:");
+        arbol.imprimirEnOrden();
 
+        // Imprimir los datos del árbol en orden
+        System.out.println("\nArbol POSTORDEN:");
+        arbol.recorridoPostOrden();
+        
         // Solicitar el Id del nodo a borrar
         System.out.print("\n Ingrese el Id del nodo a borrar: ");
         int idBorrar = scanner.nextInt();
